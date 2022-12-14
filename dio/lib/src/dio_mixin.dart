@@ -53,6 +53,7 @@ abstract class DioMixin implements Dio {
   @override
   Future<Response<T>> get<T>(
     String path, {
+    data,    
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
@@ -60,6 +61,7 @@ abstract class DioMixin implements Dio {
   }) {
     return request<T>(
       path,
+      data:data,  
       queryParameters: queryParameters,
       options: checkOptions('GET', options),
       onReceiveProgress: onReceiveProgress,
